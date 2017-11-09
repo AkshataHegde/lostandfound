@@ -1,19 +1,41 @@
-package com.akshata.pojo;
+package com.lostandfound.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import org.springframework.stereotype.Component;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "user")
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "phone_number")
 	private String phoneNumber;
+
+	@Column(name = "email_Id")
 	private String emailId;
+
+	@Column(name = "address")
 	private String address;
+
+	@Column(name = "password")
 	private String password;
+
+	@Column(name = "is_active")
 	private boolean isActive;
+
+	public int getId() {
+		return id;
+	}
 
 	public String getName() {
 		return name;
@@ -55,13 +77,12 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isActive() {
+	public boolean isIsActive() {
 		return isActive;
 	}
 
-	public void setAdmin(boolean isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	
 }
